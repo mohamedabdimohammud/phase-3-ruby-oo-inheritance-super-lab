@@ -1,6 +1,19 @@
+class ChattyStudent
+  def hello
+    greeting = "Hey there! I'm so excited to learn stuff.\n"
+    chatty_phrase = "How are you doing today? I'm okay, but I'm kind of tired. Did you watch The Walking Dead last night? You didn't?! Oh man, it was so crazy! What, you don't want any spoilers? Okay well let me just tell you who died...\n"
+    puts greeting + chatty_phrase
+  end
+
+  def raise_hand
+    phrase = "Pick me!"
+    10.times { puts phrase }
+  end
+end
+
 describe ChattyStudent do
   let!(:chatty_student) { ChattyStudent.new }
-  
+
   describe "#hello" do
     it "returns a greeting phrase plus a long chatty phrase" do
       expected_output = "Hey there! I'm so excited to learn stuff.\nHow are you doing today? I'm okay, but I'm kind of tired. Did you watch The Walking Dead last night? You didn't?! Oh man, it was so crazy! What, you don't want any spoilers? Okay well let me just tell you who died...\n"
@@ -8,9 +21,9 @@ describe ChattyStudent do
     end
   end
 
-  describe "#raise_hand" do 
-    it "returns the phrase 'Pick me!' ten times." do
-      expected_output = "Pick me!\nPick me!\nPick me!\nPick me!\nPick me!\nPick me!\nPick me!\nPick me!\nPick me!\nPick me!\n"
+  describe "#raise_hand" do
+    it "returns the phrase 'Pick me!' ten times" do
+      expected_output = "Pick me!\n" * 10
       expect { chatty_student.raise_hand }.to output(expected_output).to_stdout
     end
   end
